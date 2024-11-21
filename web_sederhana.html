@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Website Sederhana</title>
+    <style>
+      body {
+        font-family: poppins;
+      }
+
+      .container {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      img {
+        max-width: 50%;
+        height: 100px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Website Naswa</h1>
+
+      <!-- Elemen Gambar -->
+      <h2>Image</h2>
+      <img src="gambar.jpg" alt="Image Description" />
+
+      <!-- Elemen Formulir -->
+      <h2>Formulir</h2>
+      <form>
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" /><br />
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" /><br />
+        <label for="asal">Asal:</label><br />
+        <input type="text" id="asal" name="asal" /><br /><br />
+        <input type="Submit" value="submit" />
+      </form>
+
+      <!-- Elemen Tabel -->
+      <h2>Tabel Juara Kelas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Kelas</th>
+            <th>Jurusan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Naswa</td>
+            <td>11</td>
+            <td>IPA</td>
+          </tr>
+          <tr>
+            <td>Kiyoshi</td>
+            <td>11</td>
+            <td>IPS</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
