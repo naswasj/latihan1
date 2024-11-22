@@ -33,7 +33,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Website</h1>
+      <h1>Website Naswa</h1>
 
       <!-- Elemen Gambar -->
       <h2>Image</h2>
@@ -41,24 +41,25 @@
 
       <!-- Elemen Formulir -->
       <h2>Formulir</h2>
-      <form>
+      <form id="formTambah">
         <label for="name">Nama:</label><br />
         <input type="text" id="name" name="name" /><br />
-        <label for="email">Email:</label><br />
-        <input type="email" id="email" name="email" /><br />
-        <label for="asal">Asal:</label><br />
-        <input type="text" id="asal" name="asal" /><br /><br />
+        <label for="kelas">Kelas:</label><br />
+        <input type="integer" id="kelas" name="kelas" /><br />
+        <label for="jurusan">Jurusan:</label><br />
+        <input type="text" id="jurusan" name="jurusan" /><br /><br />
         <input type="Submit" value="submit" />
       </form>
 
       <!-- Elemen Tabel -->
-      <h2>Tabel Juara Kelas</h2>
-      <table>
+      <h2>Tabel Beasiswa</h2>
+      <table id="dataTable">
         <thead>
           <tr>
             <th>Nama</th>
             <th>Kelas</th>
             <th>Jurusan</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -66,14 +67,63 @@
             <td>Naswa</td>
             <td>11</td>
             <td>IPA</td>
+            <td><button class="hapus-btn">Hapus</button></td>
           </tr>
           <tr>
             <td>Kiyoshi</td>
             <td>11</td>
             <td>IPS</td>
+            <td><button class="hapus-btn">Hapus</button></td>
           </tr>
         </tbody>
       </table>
     </div>
+
+    <script>
+      // Tangkap elemen form dan tabel
+      const form = document.getElementById("formTambah");
+      const tableBody = document.querySelector("#dataTable tbody");
+
+      // Event listener untuk pengiriman formulir
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Mencegah pengiriman default
+
+        // Ambil data dari input
+        const name = document.getElementById("name").value;
+        const kelas = document.getElementById("kelas").value;
+        const jurusan = document.getElementById("jurusan").value;
+
+        // Validasi input (opsional)
+        if (!name || !kelas || !jurusan) {
+          alert("Semua field harus diisi!");
+          return;
+        }
+
+        // Tambahkan data ke tabel
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+        <td>${name}</td>
+        <td>${kelas}</td>
+        <td>${jurusan}</td>
+        <td><button class="hapus-btn">Hapus</button></td> <!-- Tombol hapus -->
+      `;
+        tableBody.appendChild(newRow);
+
+        // Kosongkan input setelah berhasil ditambahkan
+        form.reset();
+
+        // Berikan notifikasi
+        alert("Data berhasil ditambahkan ke tabel!");
+      });
+
+      // Event listener untuk tombol hapus
+      document.addEventListener("click", function (event) {
+        if (event.target.classList.contains("hapus-btn")) {
+          const row = event.target.closest("tr"); // Cari baris tempat tombol berada
+          row.remove(); // Hapus baris
+          alert("Data berhasil dihapus!");
+        }
+      });
+    </script>
   </body>
 </html>
